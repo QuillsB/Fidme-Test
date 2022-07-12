@@ -1,7 +1,8 @@
 require 'optparse'
 require 'json'
 
-require './parse'
+require './parser/user'
+require './parser/loyaltyCard'
 
 options = {}
 result = {}
@@ -10,6 +11,14 @@ OptionParser.new do |opt|
   opt.on('--user_id USER_ID') { |o| options[:user_id] = o }
   opt.on('--loyalty_card_id LOYALTY_CARD_ID') { |o| options[:loyalty_card_id] = o }
 end.parse!
+
+def get_json_file()
+  file = File.read('./input.json')
+
+  data_hash = JSON.parse(file)
+
+  return data_hash
+end
 
 data = get_json_file()
 
