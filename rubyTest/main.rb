@@ -2,7 +2,7 @@ require 'optparse'
 require 'json'
 
 require './src/parser/user'
-require './src/parser/loyaltyCard'
+require './src/parser/loyalty_card'
 
 options = {}
 result = {}

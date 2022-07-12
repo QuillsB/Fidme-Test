@@ -6,13 +6,24 @@ class LoyaltyCard
   end
 
   def update(data)
-    @id = data['id']
-    @name = data['name']
-    @points = 0
+    @id = data[:id]
+    @name = data[:name]
   end
 
   def addPoints(newPoints)
     @points += newPoints
+  end
+
+  def getId()
+    @id
+  end
+
+  def getPoints()
+    @points
+  end
+
+  def getName()
+    @name
   end
 
   def get()
