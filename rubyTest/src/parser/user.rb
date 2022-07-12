@@ -13,6 +13,18 @@ class User
     @loyalty_cards = loyaltyCards
   end
 
+  def getId()
+    @id
+  end
+
+  def getTotalPoints()
+    @total_points
+  end
+
+  def getLoyaltyCards()
+    @loyalty_cards
+  end
+
   def get()
     puts JSON.pretty_generate({
       'id': @id,
