@@ -1,8 +1,8 @@
 require 'optparse'
 require 'json'
 
-require './parser/user'
-require './parser/loyaltyCard'
+require './src/parser/user'
+require './src/parser/loyaltyCard'
 
 options = {}
 result = {}
@@ -13,7 +13,7 @@ OptionParser.new do |opt|
 end.parse!
 
 def get_json_file()
-  file = File.read('./input.json')
+  file = File.read('./src/input.json')
 
   data_hash = JSON.parse(file)
 

@@ -1,5 +1,29 @@
+class User
+  def initialize(userId)
+    @id = userId
+    @total_points = 0
+    @loyalty_cards = []
+  end
+
+  def addPoints(points)
+    @total_points += points
+  end
+
+  def setLoyaltyCards(loyaltyCards)
+    @loyalty_cards = loyaltyCards
+  end
+
+  def get()
+    puts JSON.pretty_generate({
+      'id': @id,
+      'total_points': @total_points,
+      'loyalty_cards': @loyalty_cards,
+    })
+  end
+end
+
 def extract_user_info(data, userId)
-  user_main_infos = { 'id': userId }
+  user = User.new(userId)
   points = 0
   user_loyalty_cards = []
 
@@ -19,10 +43,10 @@ def extract_user_info(data, userId)
     end
   end
 
-  user_main_infos['total_points'] = points
-  user_main_infos['loyalty_cards'] = join_users_cards(user_loyalty_cards)
+  user.addPoints(points)
+  user.setLoyaltyCards(join_users_cards(user_loyalty_cards))
 
-  puts JSON.pretty_generate(user_main_infos)
+  user.get()
 end
 
 
